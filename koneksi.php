@@ -1,5 +1,8 @@
 <?php
 
+var_dump(getenv("MYSQLDATABASE"));
+die();
+
 $host = getenv("MYSQLHOST");
 $user = getenv("MYSQLUSER");
 $pass = getenv("MYSQLPASSWORD");
