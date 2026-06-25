@@ -1,9 +1,15 @@
 <?php
 
-echo "<pre>";
-echo "HOST: "; var_dump(getenv("MYSQLHOST"));
-echo "USER: "; var_dump(getenv("MYSQLUSER"));
-echo "PASS: "; var_dump(getenv("MYSQLPASSWORD"));
-echo "DB: "; var_dump(getenv("MYSQLDATABASE"));
-echo "PORT: "; var_dump(getenv("MYSQLPORT"));
-die();
+$host = getenv("MYSQLHOST");
+$user = getenv("MYSQLUSER");
+$pass = getenv("MYSQLPASSWORD");
+$db   = getenv("MYSQLDATABASE");
+$port = getenv("MYSQLPORT");
+
+$conn = mysqli_connect($host, $user, $pass, $db, (int)$port);
+
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+
+?>
