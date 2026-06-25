@@ -1,14 +1,15 @@
 <?php
 
-$conn = mysqli_connect(
-    "localhost",
-    "root",
-    "",
-    "hm_store"
-);
+$host = $_ENV['MYSQLHOST'];
+$user = $_ENV['MYSQLUSER'];
+$pass = $_ENV['MYSQLPASSWORD'];
+$db   = $_ENV['MYSQLDATABASE'];
+$port = $_ENV['MYSQLPORT'];
 
-if(!$conn){
-    die("Koneksi gagal");
+$conn = mysqli_connect($host, $user, $pass, $db, (int)$port);
+
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
 }
 
 ?>
